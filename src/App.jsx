@@ -154,17 +154,19 @@ function ChatView({ sim, conv, msgCount, aiTyping, userInput, setUserInput, onSe
         )}
       </div>
 
-     <div style={{ display: "flex", gap: 8, alignItems: "flex-end" }}>
-  <textarea
-    value={userInput}
-    onChange={e => setUserInput(e.target.value)}
-    onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); onSend(); } }}
-    placeholder="Type your response..."
-    rows={4}
-    style={{ flex: 1, resize: "none", minHeight: 80 }}
-  />
-  <button style={{ background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 8, padding: "12px 16px", fontSize: 16, cursor: "pointer", alignSelf: "flex-end", flexShrink: 0 }} onClick={onSend} disabled={aiTyping}>→</button>
-  </div>
+      <div style={{ display: "flex", gap: 8 }}>
+        <textarea
+          value={userInput}
+          onChange={e => setUserInput(e.target.value)}
+          onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); onSend(); } }}
+          placeholder="Type your response..."
+          rows={2}
+          style={{ flex: 1, resize: "none" }}
+        />
+        <button style={{ ...s.btnPrimary, padding: "0 20px", alignSelf: "stretch", fontSize: 18 }} onClick={onSend} disabled={aiTyping}>→</button>
+      </div>
+      <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 6 }}>Enter to send · Shift+Enter for new line</div>
+    </div>
   );
 }
 
