@@ -83,15 +83,16 @@ function InputForm({ onStart, error }) {
         <textarea rows={3} placeholder="e.g. Failed ERP rollout last year, budget review in 90 days, CFO is skeptical of new vendors..." value={f.challenges} onChange={e => set("challenges", e.target.value)} style={{ resize: "vertical" }} />
       </div>
 
-      {error && <div style={s.errorBox}>{error}</div>}
+      {(localError || error) && <div style={s.errorBox}>{localError || error}</div>}
       <button style={s.btnPrimary} onClick={() => {
-        if (!f.company.trim()) return setError("Please enter the prospect company name.");
-        if (!f.role.trim()) return setError("Please enter the stakeholder role.");
-        if (!f.product.trim()) return setError("Please enter your product or solution.");
-        if (!f.challenges.trim()) return setError("Please enter at least one known challenge or context.");
-        setError("");
-        onStart(f);
-      }}>
+onClick={() => {
+  if (!f.company.trim()) return setLocalError("Please enter the prospect company name.");
+  if (!f.role.trim()) return setLocalError("Please enter the stakeholder role.");
+  if (!f.product.trim()) return setLocalError("Please enter your product or solution.");
+  if (!f.challenges.trim()) return setLocalError("Please enter at least one known challenge or context.");
+  setLocalError("");
+  onStart(f);
+}}
         ▶ &nbsp;Start meeting simulation
       </button>
     </div>
