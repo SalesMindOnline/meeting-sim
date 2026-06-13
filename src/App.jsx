@@ -154,19 +154,19 @@ function ChatView({ sim, conv, msgCount, aiTyping, userInput, setUserInput, onSe
         )}
       </div>
 
-      <div style={{ display: "flex", gap: 8 }}>
-        <textarea
-          value={userInput}
-          onChange={e => setUserInput(e.target.value)}
-          onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); onSend(); } }}
-          placeholder="Type your response..."
-          rows={2}
-          style={{ flex: 1, resize: "none" }}
-        />
-        <button style={{ ...s.btnPrimary, padding: "0 20px", alignSelf: "stretch", fontSize: 18 }} onClick={onSend} disabled={aiTyping}>→</button>
-      </div>
-      <div style={{ fontSize: 11, color: "var(--muted)", marginTop: 6 }}>Enter to send · Shift+Enter for new line</div>
-    </div>
+ <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+  <textarea
+    value={userInput}
+    onChange={e => setUserInput(e.target.value)}
+    onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); onSend(); } }}
+    placeholder="Type your response here..."
+    style={{ width: "100%", minHeight: 100, padding: "12px 14px", fontSize: 14, lineHeight: 1.6, border: "1px solid #e2e6ed", borderRadius: 8, resize: "vertical", fontFamily: "inherit", background: "#f8f9fb", color: "#1a1a2e", outline: "none" }}
+  />
+  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <div style={{ fontSize: 11, color: "#6b7280" }}>Enter to send · Shift+Enter for new line</div>
+    <button onClick={onSend} disabled={aiTyping} style={{ background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 8, padding: "10px 24px", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Send →</button>
+  </div>
+</div>
   );
 }
 
