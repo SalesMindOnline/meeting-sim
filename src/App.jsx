@@ -21,6 +21,7 @@ function scoreColor(s) {
 
 // ── INPUT FORM ────────────────────────────────────────────────────
 function InputForm({ onStart, error }) {
+  const [localError, setLocalError] = useState("");
   const [f, setF] = useState({
     company: "", role: "", url: "",
     objective: "Discovery call", stage: "Early — first contact",
