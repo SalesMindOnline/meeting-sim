@@ -163,8 +163,8 @@ function ChatView({ sim, conv, msgCount, aiTyping, userInput, setUserInput, onSe
     rows={4}
     style={{ flex: 1, resize: "none", minHeight: 80 }}
   />
-  <button style={{ ...s.btnPrimary, padding: "12px 18px", width: "auto", flexShrink: 0, fontSize: 16 }} onClick={onSend} disabled={aiTyping}>→</button>
-</div>
+  <button style={{ background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 8, padding: "12px 16px", fontSize: 16, cursor: "pointer", alignSelf: "flex-end", flexShrink: 0 }} onClick={onSend} disabled={aiTyping}>→</button>
+  </div>
   );
 }
 
