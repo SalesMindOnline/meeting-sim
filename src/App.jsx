@@ -83,8 +83,14 @@ function InputForm({ onStart, error }) {
       </div>
 
       {error && <div style={s.errorBox}>{error}</div>}
-
-      <button style={s.btnPrimary} onClick={() => onStart(f)}>
+      <button style={s.btnPrimary} onClick={() => {
+        if (!f.company.trim()) return setError("Please enter the prospect company name.");
+        if (!f.role.trim()) return setError("Please enter the stakeholder role.");
+        if (!f.product.trim()) return setError("Please enter your product or solution.");
+        if (!f.challenges.trim()) return setError("Please enter at least one known challenge or context.");
+        setError("");
+        onStart(f);
+      }}>
         ▶ &nbsp;Start meeting simulation
       </button>
     </div>
