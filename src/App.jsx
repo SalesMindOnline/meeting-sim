@@ -166,6 +166,7 @@ function ChatView({ sim, conv, msgCount, aiTyping, userInput, setUserInput, onSe
     <button onClick={onSend} disabled={aiTyping} style={{ background: "#1a1a2e", color: "#fff", border: "none", borderRadius: 8, padding: "10px 24px", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Send →</button>
   </div>
 </div>
+</div>
   );
 }
 
